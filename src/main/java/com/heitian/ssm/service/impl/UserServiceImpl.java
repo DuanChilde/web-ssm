@@ -3,10 +3,13 @@ package com.heitian.ssm.service.impl;
 import com.heitian.ssm.dao.UserDao;
 import com.heitian.ssm.model.User;
 import com.heitian.ssm.service.UserService;
+import com.heitian.ssm.utils.HelperFunc;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +28,10 @@ public class UserServiceImpl implements UserService {
     public User getUserById(Long userId) {
         return userDao.selectUserById(userId);
     }
+
+    public User selectUserByuserNameAnduserPwd(String userName,String userPwd){
+        return userDao.selectUserByuserNameAnduserPwd(userName,HelperFunc.md5(userPwd));
+    }
     
     public User getUserByPhoneOrEmail(String emailOrPhone, Short state) {
         return userDao.selectUserByPhoneOrEmail(emailOrPhone,state);
@@ -40,7 +47,7 @@ public class UserServiceImpl implements UserService {
         String createTime = formatter.format(date);
         String modifyTime = formatter.format(date);
         Short isDelete = 0;
-        return userDao.addUser(userName,userPhone,userEmail,userPwd,pwdSalt,createTime,modifyTime,isDelete);
+        return userDao.addUser(userName,userPhone,userEmail,HelperFunc.md5(userPwd),pwdSalt,createTime,modifyTime,isDelete);
     }
 
     public void delUser(Long userId){

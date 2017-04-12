@@ -10,7 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>用户信息列表</title>
+    <title>注册</title>
 </head>
 <body>
     <form action="/user/add" method="Post">

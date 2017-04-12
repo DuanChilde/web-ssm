@@ -19,6 +19,10 @@
         WHERE id = #{userId}
     </select>
 
+    <select id="selectUserByuserNameAnduserPwd" resultMap="UserBaseMap">
+        SELECT * FROM t_user WHERE user_name = #{userName} and user_pwd = #{userPwd}
+    </select>
+
     <select id="selectUserByPhoneOrEmail" resultMap="UserBaseMap">
         SELECT * FROM t_user
         WHERE user_email = #{emailOrPhone} OR user_phone = #{emailOrPhone}

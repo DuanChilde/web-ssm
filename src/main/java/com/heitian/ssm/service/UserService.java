@@ -15,6 +15,8 @@ public interface UserService {
 
     User getUserById(Long userId);
 
+    User selectUserByuserNameAnduserPwd(String userName,String userPwd);
+
     User addUser(String userName,String userPhone,String userEmail,String userPwd,String pwdSalt);
 
     void delUser(Long userId);

@@ -15,6 +15,8 @@ public interface UserDao {
 
     User selectUserById(@Param("userId") Long userId);
 
+    User selectUserByuserNameAnduserPwd(@Param("userName") String userName,@Param("userPwd") String userPwd);
+
     User selectUserByPhoneOrEmail(@Param("emailOrPhone") String emailOrPhone, @Param("state") Short state);
 
     List<User> selectAllUser();
