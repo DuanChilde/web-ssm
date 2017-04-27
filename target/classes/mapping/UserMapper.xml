@@ -9,9 +9,9 @@
         <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
         <result column="user_pwd" property="userPwd" jdbcType="VARCHAR"/>
         <result column="pwd_salt" property="pwdSalt" jdbcType="VARCHAR"/>
-        <result column="create_time" property="createTime" jdbcType="DATE"/>
-        <result column="modify_time" property="modifyTime" jdbcType="DATE"/>
         <result column="is_delete" property="isDelete" jdbcType="SMALLINT"></result>
+        <result column="ctime" property="ctime" jdbcType="BIGINT"/>
+        <result column="mtime" property="mtime" jdbcType="BIGINT"/>
     </resultMap>
 
     <select id="selectUserById" parameterType="java.lang.Long" resultMap="UserBaseMap">
@@ -34,7 +34,7 @@
     </select>
 
     <select id="addUser" resultMap="UserBaseMap">
-        INSERT into t_user VALUES(NULL,#{userName},#{userPhone},#{userEmail},#{userPwd},#{pwdSalt},#{createTime},#{modifyTime},#{isDelete});
+        INSERT into t_user VALUES(NULL,#{userName},#{userPhone},#{userEmail},#{userPwd},#{pwdSalt},#{isDelete},#{ctime},#{mtime});
     </select>
 
     <select id="delUser" resultMap="UserBaseMap">
@@ -42,7 +42,7 @@
     </select>
 
     <select id="updateUser" resultMap="UserBaseMap">
-        UPDATE t_user set user_name=#{userName},user_phone=#{userPhone},user_email=#{userEmail},user_pwd=#{userPwd},modify_time=#{modifyTime} where id=#{userId};
+        UPDATE t_user set user_name=#{userName},user_phone=#{userPhone},user_email=#{userEmail},user_pwd=#{userPwd},mtime=#{mtime} where id=#{userId};
     </select>
 
 

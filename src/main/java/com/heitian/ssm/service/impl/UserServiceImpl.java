@@ -42,12 +42,10 @@ public class UserServiceImpl implements UserService {
     }
 
     public User addUser(String userName,String userPhone,String userEmail,String userPwd,String pwdSalt){
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String createTime = formatter.format(date);
-        String modifyTime = formatter.format(date);
+        Long ctime = new Date().getTime();
+        Long mtime = new Date().getTime();
         Short isDelete = 0;
-        return userDao.addUser(userName,userPhone,userEmail,HelperFunc.md5(userPwd),pwdSalt,createTime,modifyTime,isDelete);
+        return userDao.addUser(userName,userPhone,userEmail,HelperFunc.md5(userPwd),pwdSalt,ctime,mtime,isDelete);
     }
 
     public void delUser(Long userId){
@@ -55,9 +53,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public User updateUser(User user){
-        Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String modifyTime = formatter.format(date);
-        return userDao.updateUser(user.getId(),user.getUserName(),user.getUserPhone(),user.getUserEmail(),user.getUserPwd(),modifyTime);
+        Long mtime = new Date().getTime();
+        return userDao.updateUser(user.getId(),user.getUserName(),user.getUserPhone(),user.getUserEmail(),user.getUserPwd(),mtime);
     }
 }

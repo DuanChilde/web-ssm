@@ -13,7 +13,7 @@
     <title>注册</title>
 </head>
 <body>
-    <form action="/user/add" method="Post">
+    <form action="/user/register" method="Post">
        用户名： <input type="input" name="userName"><br />
         手机号：<input type="input" name="userPhone"><br />
         邮箱：<input type="input" name="userEmail"><br />

@@ -26,8 +26,8 @@ CREATE TABLE `t_user` (
   `user_email` varchar(255) default NULL COMMENT '邮箱地址',
   `user_pwd` varchar(32) default NULL COMMENT '加盐后用户密码',
   `pwd_salt` varchar(6) default NULL COMMENT 'MD5盐',
-  `create_time` datetime default NULL COMMENT '创建时间',
-  `modify_time` datetime default NULL COMMENT '最后修改时间',
+  `ctime`  bigint(11) default NULL COMMENT '创建时间',
+  `mtime`  bigint(11) default NULL COMMENT '最后修改时间',
   `is_delete` tinyint(4) default NULL COMMENT '是否删除，0-未删除；1-已删除',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户登录表';
