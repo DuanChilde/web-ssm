@@ -2,3 +2,5 @@
 .settings/
 .classpath
 .project
+target/classes/com/
+target/web-ssm/WEB-INF/classes/com/
