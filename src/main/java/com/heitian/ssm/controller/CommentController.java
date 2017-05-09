@@ -1,7 +1,6 @@
 package com.heitian.ssm.controller;
 
 import com.heitian.ssm.service.CommentService;
-import com.heitian.ssm.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

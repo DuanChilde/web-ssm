@@ -58,8 +58,11 @@ public class UserController {
         String userEmail = request.getParameter("userEmail");
         String userPwd = request.getParameter("pwd");
         String pwdSalt = "sadas";
-        userService.addUser(userName,userPhone,userEmail,userPwd,pwdSalt);
+        User user = userService.addUser(userName,userPhone,userEmail,userPwd,pwdSalt);
         log.info("添加用户信息成功");
+
+
+
         return "addUser";
     }
 
