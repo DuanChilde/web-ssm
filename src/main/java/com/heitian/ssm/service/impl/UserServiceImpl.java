@@ -45,7 +45,19 @@ public class UserServiceImpl implements UserService {
         Long ctime = new Date().getTime();
         Long mtime = new Date().getTime();
         Short isDelete = 0;
-        return userDao.addUser(userName,userPhone,userEmail,HelperFunc.md5(userPwd),pwdSalt,ctime,mtime,isDelete);
+
+        User user = new User();
+        user.setUserName(userName);
+        user.setUserPhone(userPhone);
+        user.setUserEmail(userEmail);
+        user.setUserPwd(userPwd);
+        user.setPwdSalt(pwdSalt);
+        user.setCtime(ctime);
+        user.setMtime(mtime);
+        user.setIsDelete(isDelete);
+        userDao.addUser(user);
+        Long userId = user.getId();
+        return user;
     }
 
     public void delUser(Long userId){

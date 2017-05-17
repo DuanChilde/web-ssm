@@ -1,5 +1,6 @@
 package com.heitian.ssm.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.heitian.ssm.model.User;
 import com.heitian.ssm.service.UserService;
 import org.apache.log4j.Logger;
@@ -60,10 +61,9 @@ public class UserController {
         String pwdSalt = "sadas";
         User user = userService.addUser(userName,userPhone,userEmail,userPwd,pwdSalt);
         log.info("添加用户信息成功");
-
-
-
-        return "addUser";
+        String res = JSON.toJSONString(user);
+        log.info(res);
+        return "1";
     }
 
     //注册

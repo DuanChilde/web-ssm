@@ -13,8 +13,8 @@ public class User {
     private String userEmail;
     private String userPwd;
     private String pwdSalt;
-    private Date createTime;
-    private Date modifyTime;
+    private Long ctime;
+    private Long mtime;
     private Short isDelete;
 
     public Long getId() {
@@ -65,20 +65,20 @@ public class User {
         this.pwdSalt = pwdSalt;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Long getCtime() {
+        return ctime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCtime(Long ctime) {
+        this.ctime = ctime;
     }
 
-    public Date getModifyTime() {
-        return modifyTime;
+    public Long getMtime() {
+        return mtime;
     }
 
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
+    public void setMtime(Long mtime) {
+        this.mtime = mtime;
     }
 
     public Short getIsDelete() {

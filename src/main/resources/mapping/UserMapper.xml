@@ -33,9 +33,9 @@
         SELECT * FROM t_user
     </select>
 
-    <select id="addUser" resultMap="UserBaseMap">
-        INSERT into t_user VALUES(NULL,#{userName},#{userPhone},#{userEmail},#{userPwd},#{pwdSalt},#{isDelete},#{ctime},#{mtime});
-    </select>
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="id" parameterType="com.heitian.ssm.model.User">
+        INSERT into t_user(`user_name`,`user_phone`,`user_email`,`user_pwd`,`pwd_salt`,`is_delete`,`ctime`,`mtime`) VALUES(#{userName},#{userPhone},#{userEmail},#{userPwd},#{pwdSalt},#{isDelete},#{ctime},#{mtime});
+    </insert>
 
     <select id="delUser" resultMap="UserBaseMap">
         DELETE from t_user where id=#{userId};

@@ -21,7 +21,7 @@ public interface UserDao {
 
     List<User> selectAllUser();
 
-    User addUser(@Param("userName") String userName,@Param("userPhone")String userPhone,@Param("userEmail")String userEmail,@Param("userPwd")String userPwd,@Param("pwdSalt")String pwdSalt,@Param("ctime")Long ctime,@Param("mtime")Long mtime,@Param("isDelete")short isDelete);
+    User addUser(@Param("user") User user);
 
     void delUser(@Param("userId")Long userId);
 
